@@ -5,13 +5,11 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BulkyWeb", "BulkyWeb\BulkyWeb.csproj", "{CF8D18E3-1D27-4AD5-A4B8-8B67070AF58D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BulkyWebRazor_Temp", "BulkyWebRazor_Temp\BulkyWebRazor_Temp.csproj", "{E40E08B8-FADB-424B-AED0-CB827977743E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bulky.DataAccess", "Bulky.DataAccess\Bulky.DataAccess.csproj", "{2FAC1775-E088-4B5F-8862-139B1E65C016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bulky.DataAccess", "Bulky.DataAccess\Bulky.DataAccess.csproj", "{2FAC1775-E088-4B5F-8862-139B1E65C016}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bulky.Models", "Bulky.Models\Bulky.Models.csproj", "{559BF2D9-E6F7-4D96-B8FA-58B5D6373FF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bulky.Models", "Bulky.Models\Bulky.Models.csproj", "{559BF2D9-E6F7-4D96-B8FA-58B5D6373FF7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bulky.Utility", "Bulky.Utility\Bulky.Utility.csproj", "{AFE1EC4F-7D2B-4AD6-8F0A-61F5571701A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bulky.Utility", "Bulky.Utility\Bulky.Utility.csproj", "{AFE1EC4F-7D2B-4AD6-8F0A-61F5571701A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{CF8D18E3-1D27-4AD5-A4B8-8B67070AF58D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF8D18E3-1D27-4AD5-A4B8-8B67070AF58D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF8D18E3-1D27-4AD5-A4B8-8B67070AF58D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E40E08B8-FADB-424B-AED0-CB827977743E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E40E08B8-FADB-424B-AED0-CB827977743E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E40E08B8-FADB-424B-AED0-CB827977743E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E40E08B8-FADB-424B-AED0-CB827977743E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2FAC1775-E088-4B5F-8862-139B1E65C016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2FAC1775-E088-4B5F-8862-139B1E65C016}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FAC1775-E088-4B5F-8862-139B1E65C016}.Release|Any CPU.ActiveCfg = Release|Any CPU
