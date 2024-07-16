@@ -10,7 +10,7 @@ namespace Bulky.Models
         [Required]
         [MaxLength(30)]
         [DisplayName("Category Name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
         [DisplayName("Display Order")]
         [Range(1,100, ErrorMessage = "Display Order Must Between 1-100")]
         public int DisplayOrder { get; set; }
