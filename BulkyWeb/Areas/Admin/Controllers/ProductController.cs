@@ -1,6 +1,7 @@
 ﻿using Bulky.DataAccess.Data;
 using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
+using Bulky.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -20,67 +21,55 @@ namespace BulkyWeb.Areas.Admin.Controllers
             return View(product);
         }
 
-        public IActionResult Create()
+        public IActionResult Upsert(int? id)
         {
-            IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(item => new SelectListItem
+            //IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(item => new SelectListItem
+            //{
+            //    Text = item.Name,
+            //    Value = item.Id.ToString()
+            //});
+            ProductVM productVM = new()
             {
-                Text = item.Name,
-                Value = item.Id.ToString()
-            });
-
-            ViewData["CategoryList"] = CategoryList;
-            return View();
+                CategoryList = _unitOfWork.Category.GetAll().Select(item => new SelectListItem
+                {
+                    Text = item.Name,
+                    Value = item.Id.ToString()
+                }),
+                Product = new Product()
+            };
+            if (id == null || id == 0)
+            {
+                //create
+                return View(productVM);
+            }
+            else
+            {
+                //update
+                productVM.Product = _unitOfWork.Product.Get(item => item.Id == id);
+                return View(productVM);
+            }
         }
 
         [HttpPost]
-        public IActionResult Create(Product Product)
+        public IActionResult Upsert(ProductVM productVM, IFormFile? file)
         {
-            //Product.CategoryId = 4;
-            //Product.Category = new Category();
-            //var data = _unitOfWork.Category.Get(item => item.Id.Equals(Product.CategoryId));
-            //Product.Category.Id = data.Id;
-            //Product.Category.Name = data.Name;
-            //Product.Category.DisplayOrder = data.DisplayOrder;
             if (ModelState.IsValid)
             {
-                _unitOfWork.Product.Add(Product);
+                _unitOfWork.Product.Add(productVM.Product);
                 _unitOfWork.Save();
                 TempData["success"] = "Product Create Successfully";
                 return RedirectToAction("Index");
             }
-            return View(Product);
-        }
+            else
+            {
+                productVM.CategoryList = _unitOfWork.Category.GetAll().Select(item => new SelectListItem 
+                { 
+                    Text = item.Name,
+                    Value = item.Id.ToString()
+                });
 
-        public IActionResult Edit(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
+                return View(productVM);
             }
-            Product? cate = _unitOfWork.Product.Get(item => item.Id.Equals(id));
-            if (cate == null)
-            {
-                return NotFound();
-            }
-            return View(cate);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Product Product)
-        {
-            //    Product.CategoryId = 4;
-            //    Product.Category = new Category();
-            //    var data = _unitOfWork.Category.Get(item => item.Id.Equals(Product.CategoryId));
-            //    Product.Category.Name = data.Name;
-            //    Product.Category.DisplayOrder = data.DisplayOrder;
-            if (ModelState.IsValid)
-            {
-                _unitOfWork.Product.Update(Product);
-                _unitOfWork.Save();
-                TempData["success"] = "Product Edit Successfully";
-                return RedirectToAction("Index");
-            }
-            return View();
         }
 
         public IActionResult Delete(int? id)
