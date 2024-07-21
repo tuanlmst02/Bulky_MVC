@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bulky.Models.Models
+namespace Bulky.Models
 {
     public class Product
     {
@@ -44,7 +44,6 @@ namespace Bulky.Models.Models
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
 
-        //[ValidateNever]
-        //public List<ProductImage> ProductImages { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
