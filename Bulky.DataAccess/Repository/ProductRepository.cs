@@ -36,7 +36,7 @@ namespace Bulky.DataAccess.Repository
                 objFromDb.Author = product.Author;
                 if (objFromDb.ImageUrl != null)
                 {
-                    objFromDb.ImageUrl = objFromDb.ImageUrl;
+                    objFromDb.ImageUrl = product.ImageUrl;
                 }
             }
         }
