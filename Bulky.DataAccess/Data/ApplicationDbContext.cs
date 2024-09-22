@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Identity;
+using Bulky.Models.Models;
 
 namespace Bulky.DataAccess.Data
 {
@@ -13,7 +14,8 @@ namespace Bulky.DataAccess.Data
 
         }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Product> Products {  get; set; } 
+        public DbSet<Product> Products {  get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         #region Required
         protected override void OnModelCreating(ModelBuilder modelBuilder)
